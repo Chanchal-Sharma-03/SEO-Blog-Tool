@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>SEO Blog Creation Tool</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 SEO Blog Creation Tool</h1>
+            <p>Automate your content creation pipeline from product research to publishing</p>
+        </div>
+
+        <div class="tool-container">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(0)">1. Product Research</button>
+                <button class="tab" onclick="switchTab(1)">2. SEO Keywords</button>
+                <button class="tab" onclick="switchTab(2)">3. Blog Generation</button>
+                <button class="tab" onclick="switchTab(3)">4. Publishing</button>
+            </div>
+
+            <!-- Tab 1: Product Research -->
+            <div class="tab-content active">
+                <h2>Product Research & Scraping</h2>
+                <div class="form-group">
+                    <label for="platform">E-commerce Platform</label>
+                    <select id="platform">
+                        <option value="amazon">Amazon</option>
+                        <option value="ebay">eBay</option>
+                        <option value="etsy">Etsy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Product Category</label>
+                    <input type="text" id="category" placeholder="e.g., wireless headphones, gaming mouse, skincare">
+                </div>
+                <div class="form-group">
+                    <label for="filter">Filter</label>
+                    <select id="filter">
+                        <option value="trending">Trending Products</option>
+                        <option value="bestseller">Best Sellers</option>
+                        <option value="new">New Arrivals</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="scrapeProducts()">🔍 Research Products</button>
+                
+                <div id="products-container"></div>
+            </div>
+
+            <!-- Tab 2: SEO Keywords -->
+            <div class="tab-content">
+                <h2>SEO Keyword Research</h2>
+                <div class="form-group">
+                    <label>Selected Product</label>
+                    <div id="selected-product-info">
+                        <p style="color: #6c757d; font-style: italic;">Please select a product from the previous step</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="keyword-tool">Keyword Research Tool</label>
+                    <select id="keyword-tool">
+                        <option value="google">Google Keyword Planner</option>
+                        <option value="ubersuggest">Ubersuggest</option>
+                        <option value="semrush">SEMrush</option>
+                        <option value="ahrefs">Ahrefs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target-audience">Target Audience</label>
+                    <input type="text" id="target-audience" placeholder="e.g., tech enthusiasts, fitness beginners, small business owners">
+                </div>
+                <button class="btn" onclick="generateKeywords()">🎯 Generate Keywords</button>
+                
+                <div id="keywords-container"></div>
+            </div>
+
+            <!-- Tab 3: Blog Generation -->
+            <div class="tab-content">
+                <h2>AI Blog Post Generation</h2>
+                <div class="form-group">
+                    <label for="blog-tone">Writing Tone</label>
+                    <select id="blog-tone">
+                        <option value="professional">Professional</option>
+                        <option value="casual">Casual & Friendly</option>
+                        <option value="enthusiastic">Enthusiastic</option>
+                        <option value="informative">Informative</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="word-count">Word Count</label>
+                    <select id="word-count">
+                        <option value="150-200">150-200 words</option>
+                        <option value="200-300">200-300 words</option>
+                        <option value="300-500">300-500 words</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cta-type">Call-to-Action Type</label>
+                    <select id="cta-type">
+                        <option value="purchase">Encourage Purchase</option>
+                        <option value="learn-more">Learn More</option>
+                        <option value="compare">Compare Products</option>
+                        <option value="review">Read Reviews</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="generateBlog()">✍️ Generate Blog Post</button>
+                
+                <div id="blog-container"></div>
+            </div>
+
+            <!-- Tab 4: Publishing -->
+            <div class="tab-content">
+                <h2>Publish Your Blog Post</h2>
+                <div class="publish-options">
+                    <div class="publish-card" onclick="selectPublishPlatform('wordpress')">
+                        <div class="publish-icon">📝</div>
+                        <h3>WordPress</h3>
+                        <p>Self-hosted or WordPress.com</p>
+                    </div>
+                    <div class="publish-card" onclick="selectPublishPlatform('medium')">
+                        <div class="publish-icon">📖</div>
+                        <h3>Medium</h3>
+                        <p>Built-in audience</p>
+                    </div>
+                    <div class="publish-card" onclick="selectPublishPlatform('blogger')">
+                        <div class="publish-icon">🌐</div>
+                        <h3>Blogger</h3>
+                        <p>Google's platform</p>
+                    </div>
+                    <div class="publish-card" onclick="selectPublishPlatform('ghost')">
+                        <div class="publish-icon">👻</div>
+                        <h3>Ghost</h3>
+                        <p>Modern publishing</p>
+                    </div>
+                </div>
+                
+                <div id="publish-form-container"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
